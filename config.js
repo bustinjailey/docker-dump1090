@@ -37,7 +37,7 @@ DefaultZoomLvl   = 7;
 SiteShow    = true;            // true to show a center marker
 SiteLat     = 34.069270;       // position of the marker
 SiteLon     = -118.252824;
-SiteName    = "Home"; // tooltip of the marker
+SiteName    = "Echo Park"; // tooltip of the marker
 
 // User Map (KML File)
 // Enables KML overlay on map, UserMap must have a value below when "true"
