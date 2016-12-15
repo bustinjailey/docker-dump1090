@@ -17,7 +17,7 @@ MessageRateInTitle = true;
 // and in the detailed plane info. If ShowOtherUnits is true,
 // then the other unit will also be shown in the detailed plane
 // info.
-Metric = true;
+Metric = false;
 ShowOtherUnits = true;
 
 // -- Map settings ----------------------------------------
@@ -26,8 +26,8 @@ ShowOtherUnits = true;
 // degrees.
 
 // Default center of the map.
-DefaultCenterLat = 52.085624;
-DefaultCenterLon = 5.0890591;
+DefaultCenterLat = 34.069270;
+DefaultCenterLon = -118.252824;
 // The google maps zoom level, 0 - 16, lower is further out
 DefaultZoomLvl   = 7;
 
@@ -35,9 +35,9 @@ DefaultZoomLvl   = 7;
 // that location is used and these settings are ignored.
 
 SiteShow    = true;            // true to show a center marker
-SiteLat     = 52.085624;       // position of the marker
-SiteLon     = 5.0890591;
-SiteName    = "My Radar Site"; // tooltip of the marker
+SiteLat     = 34.069270;       // position of the marker
+SiteLon     = -118.252824;
+SiteName    = "Home"; // tooltip of the marker
 
 // User Map (KML File)
 // Enables KML overlay on map, UserMap must have a value below when "true"

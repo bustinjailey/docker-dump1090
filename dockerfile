@@ -1,8 +1,8 @@
 # More info at:
-# https://github.com/tedsluis/docker-dump1090
-# https://github.com/tedsluis/dump1090
+# https://github.com/bustinjailey/docker-dump1090
+# https://github.com/bustinjailey/dump1090
 # https://github.com/mutability/dump1090
-# https://hub.docker.com/r/tedsluis/dump1090-mutability
+# https://hub.docker.com/r/bustinjailey/dump1090-mutability
 # http://discussions.flightaware.com/post180185.html
 # https://www.youtube.com/watch?v=h4YyFDTS6CQ
 
@@ -10,13 +10,13 @@
 # the heatmap and rangeview features on X86/AMD64 (Intel or AMD cpu's).
 
 # Build it yourself:  
-#                      $ docker build -t tedsluis/dump1090-mutability:v1.15_heatmaprangeview .
+#                      $ docker build -t bustinjailey/dump1090-mutability:v1.15_heatmaprangeview .
 
 # Run it:    
-#                      $ docker run -d -h dump01 -p 8080:80 tedsluis/dump1090-mutability:v1.15_heatmaprangeview
+#                      $ docker run -d -h dump01 -p 8080:80 bustinjailey/dump1090-mutability:v1.15_heatmaprangeview
                       
 # Or run it with a different BEAST source:    
-#                      $ docker run -d -h dump01 -p 8080:80 tedsluis/dump1090-mutability:v1.15_heatmaprangeview /usr/share/dump1090-mutability/startdump1090.sh <IP address of your own remote dump1090 source>
+#                      $ docker run -d -h dump01 -p 8080:80 bustinjailey/dump1090-mutability:v1.15_heatmaprangeview /usr/share/dump1090-mutability/startdump1090.sh <IP address of your own remote dump1090 source>
 
 FROM debian:latest
 
@@ -57,7 +57,7 @@ RUN ln /usr/bin/python2.7 /usr/bin/python2
 RUN mkdir /tmp/dump1090
 
 # Clone, build and install dump1090 from source:
-RUN cd /tmp/dump1090 && git clone https://github.com/tedsluis/dump1090.git   /tmp/dump1090 
+RUN cd /tmp/dump1090 && git clone https://github.com/bustinjailey/dump1090.git   /tmp/dump1090 
 RUN cd /tmp/dump1090 && dpkg-buildpackage -b
 RUN cd /tmp          && dpkg -i dump1090-mutability_1.15~dev_amd64.deb
 
@@ -68,8 +68,8 @@ RUN wget -O /usr/share/dump1090-mutability/html/heatmapdata.csv https://dl.dropb
 # notes: 
 # The is the place where you can replace the config files with yourn own URL's.
 # If you use other config files, be sure you configure them before building the image. Don't use the default config files, because you won't be able to configure them!
-RUN wget -O /usr/share/dump1090-mutability/html/config.js       https://raw.githubusercontent.com/tedsluis/docker-dump1090/master/config.js   
-RUN wget -O /etc/default/dump1090-mutability                    https://raw.githubusercontent.com/tedsluis/docker-dump1090/master/dump1090-mutability
+RUN wget -O /usr/share/dump1090-mutability/html/config.js       https://raw.githubusercontent.com/bustinjailey/docker-dump1090/master/config.js   
+RUN wget -O /etc/default/dump1090-mutability                    https://raw.githubusercontent.com/bustinjailey/docker-dump1090/master/dump1090-mutability
 
 # Add terrain-limit rings. To enable this:
 # create a panorama for your receiver location on heywhatsthat.com
@@ -91,7 +91,7 @@ RUN lighty-enable-mod dump1090
 
 # Create startdump1090.sh script
 # note: Change the default IP address of the remote dump1090 source in the startdump1090.sh script or specify the script with the IP address while you start the container!
-RUN wget -O /usr/share/dump1090-mutability/startdump1090.sh https://raw.githubusercontent.com/tedsluis/docker-dump1090/master/startdump1090.sh
+RUN wget -O /usr/share/dump1090-mutability/startdump1090.sh https://raw.githubusercontent.com/bustinjailey/docker-dump1090/master/startdump1090.sh
 RUN chmod 775 /usr/share/dump1090-mutability/startdump1090.sh
 
 # This is the place where you can put your own ADS-B BEAST source.
